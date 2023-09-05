@@ -1,8 +1,11 @@
 package com.amSecurity.amSecurity.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.password.AbstractPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configuration.ClientDetailsServiceConfiguration;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -30,18 +33,30 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private TokenStore tokenStore;
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
 
     @Override
     public void configure(ClientDetailsServiceConfigurer configurer) throws Exception{
         configurer
+//                .inMemory()
+//                .withClient(CLIENT_ID)
+//                .secret(passwordEncoder.encode(""))
+//                .authorizedGrantTypes(GRANT_TYPE)
+//                .scopes(SCOPE_READ,SCOPE_WRITE,TRUST)
+//                .accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS)
+//                .refreshTokenValiditySeconds(REFRESH_TOKEN_VALIDITY_SECONDS);
                 .inMemory()
                 .withClient(CLIENT_ID)
-                .secret(CLIENT_SECRET)
-                .authorizedGrantTypes(GRANT_TYPE,AUTHORIZATION_CODE,REFRESH_TOKEN,IMPLICIT)
-                .scopes(SCOPE_READ,SCOPE_WRITE,TRUST)
-                .accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS)
-                .refreshTokenValiditySeconds(REFRESH_TOKEN_VALIDITY_SECONDS);
+                .secret(passwordEncoder.encode(CLIENT_SECRET))
+                .authorizedGrantTypes(GRANT_TYPE)
+                .scopes(SCOPE_READ, SCOPE_WRITE, TRUST)
+                .accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS).
+                refreshTokenValiditySeconds(REFRESH_TOKEN_VALIDITY_SECONDS);
     }
+    //.secret(CLIENT_SECRET)
+    //.authorizedGrantTypes("password","refresh_token","implicit")
 
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception{
         endpoints
