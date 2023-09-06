@@ -16,11 +16,11 @@ import javax.persistence.Id;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String userName;
+    private boolean active;
     private String password;
-    private double salary;
-    private int age;
+    private String roles;
+    private String user_name;
 
 }
