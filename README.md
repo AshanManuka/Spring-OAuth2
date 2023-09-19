@@ -1,6 +1,6 @@
 # Spring-Security
 
-MySql Script 
+MySql Script :  
 [Sql-Script.txt](https://github.com/AshanManuka/Spring-Security/files/12658099/Sql-Script.txt)
 
 Login Request
