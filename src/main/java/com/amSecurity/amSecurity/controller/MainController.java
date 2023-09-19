@@ -30,6 +30,11 @@ public class MainController {
         return "<h1> Welcome System User to Demo Application!!</h1>";
     }
 
+    @GetMapping("/otherUser")
+    public String welcomeOtherUser(){
+        return "<h1> Welcome Foreign User to Demo Application!!</h1>";
+    }
+
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticateToken(@RequestBody AuthenticationRequest authRequest)throws Exception{
