@@ -20,6 +20,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
         System.out.println("--------------------- User service ----------------------------");
 
+
         User user = userRepository.findByUser_name(username);
         if (user == null){
             throw new UsernameNotFoundException("Not found :"+ username);
