@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS amsecurity;
+
+USE amsecurity;
+
+CREATE TABLE user(id INT, active BOOLEAN, password TEXT,roles VARCHAR(20), user_name VARCHAR(20));
+
+INSERT INTO USER(id,active,password,roles,user_name) VALUES(1,true,'$2a$12$Y0Rl5dVprJ7hS1oGbvFHgux6nII98suwqocGDy1PKDAj6B0xls6mm','ROLE_ADMIN','sampleOne');
+INSERT INTO USER(id,active,password,roles,user_name) VALUES(2,true,'$2a$12$bp4NbOb485aDlCZibS3kbOAPeQci59bOuNYfoP3GMfLKdqwzE/XGu','ROLE_SHOP_ADMIN','sampleTwo');
+
+----------------------------------------
+#username - sampleOne, sampleTwo
+#password - sampleOne,sampleTwo
