@@ -1,6 +1,6 @@
 # Spring-Security
 
-MySql Script : [Sql-Script.txt](https://github.com/AshanManuka/Spring-Security/files/12658099/Sql-Script.txt)
+MySql Script :[Sql-Script.txt](https://github.com/AshanManuka/Spring-Security/files/12658099/Sql-Script.txt)
 
 Login Request
 ![postman](https://github.com/AshanManuka/Spring-Security/assets/88023478/d3ada54b-fe97-4141-a2e5-43acd6294df2)
